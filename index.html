@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Processor list</title>
+	<!-- <link rel="stylesheet" href="../../bib/bootstrap-5.1.3/css/bootstrap.min.css">
+	<script type="text/javascript" src="../../bib/jquery.js"></script> -->
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+	.tbl{
+		font-weight: bold;
+	}
+	.tb td,th{
+		height: 40px;
+		border: 3px solid red;
+	}
+	.rad{
+		font-weight: bold;
+		text-align: center;
+	}
+</style>
+<script type="text/javascript" >
+	let a=0;
+	$(document).ready(function(){
+		let proccessor = ['A15 Bionic','Dimensity 9000','Snapdragon 8 Gen 1','A14 Bionic','Snapdragon 888 Plus','Exynos 2200','Snapdragon 888','Dimensity 8100','Google Tensor','Kirin 9000','Exynos 2100','A13 Bionic','Snapdragon 870','Kirin 9000E','Exynos 1080','Snapdragon 865 Plus','Dimensity 1200','Dimensity 1100','Snapdragon 865','Exynos 990','A12 Bionic','Dimensity 1000 Plus','Snapdragon 860','Snapdragon 855 Plus','Snapdragon 778G Plus','Kirin 990 (5G)','Snapdragon 780G','Snapdragon 855','Snapdragon 778G','Kirin 990 (4G)','Exynos 9825','Dimensity 1000','Exynos 9820','Dimensity 920','Kirin 985','Dimensity 1000L','Kirin 980','Exynos 1280','Kirin 820','Dimensity 820','Snapdragon 768G','Snapdragon 845','Dimensity 900','Exynos 9810','Snapdragon 695','A11 Bionic','Exynos 980','Snapdragon 765G','Snapdragon 765','Dimensity 810','Snapdragon 750G','Dimensity 800U','Kirin 810','Exynos 880','Snapdragon 732G','Dimensity 800','Snapdragon 480 Plus','Dimensity 720','Snapdragon 690','Snapdragon 720G','Dimensity 700','Helio G90','Snapdragon 730G','Snapdragon 835','Snapdragon 730','Helio G96','Helio G95','Helio G90T','Snapdragon 480','A10 Fusion','Snapdragon 680','Kirin 970','Exynos 8895','Snapdragon 712','Snapdragon 678','Helio P95','Snapdragon 710','Tiger T618','Snapdragon 820','Kirin 960','Snapdragon 675','Helio P90','Exynos 9611','Snapdragon 670','Helio G88','Helio G80','Exynos 9609','Exynos 8890','Tiger T616','Tiger T700','Helio G85','Snapdragon 662','Kirin 710F','Apple A9','Snapdragon 665','Helio G70','Kirin 710','Exynos 9610','Kirin 710A','Exynos 850','Snapdragon 460','Helio P65','Snapdragon 821','Snapdragon 660','Unisoc T606','Tiger T610','Helio P70','Helio P60','Exynos 7904','Snapdragon 636','Snapdragon 632','Helio G35','Exynos 7885','Kirin 950','Helio P35','Snapdragon 630','Exynos 7872','Kirin 955','Helio A25','Helio G25','Exynos 7884B','Kirin 659','Exynos 7420','Snapdragon 439','Helio P22'];
+		for(let i=0;i<proccessor.length;i++){
+			$("<tr><td>"+(i+1)+"</td><td>"+proccessor[i]+"</td></tr>").insertBefore(".td");
+		}
+		$(".nbr").html(proccessor.length);
+		$(".tbl").height($(window).height()-135);
+		 $("#search").on("keyup", function() {
+		 	var value = $(this).val().toLowerCase();
+		 	var count = 0;
+		 	$(".tb tr:has(td)").filter(function() {
+		 		var exist = $(this).text().toLowerCase().indexOf(value) > -1;
+		 		if(exist)
+		 			count++;
+		 		$(this).toggle(exist);
+		 	});
+		 	$(".nbr").html(count);
+		 });
+	});
+</script>
+</head>
+<body>
+	<div class="container col-11 col-lg-4 col-md-6 col-sm-8 alert-danger text-wrap mt-3 p-2 rounded" >
+		<div class="rad bg-info text-white rounded">&copy Radouan msaad</div>
+		<div  class="form-group">
+			<label for="">Proccessors: <span class="nbr"></span></label>
+			<input type="text" class="form-control mt-1" placeholder="Tapez un nom" id="search" autofocus>
+		</div>
+		<div class="table-responsive tbl mt-1">
+		<table class="table table-striped tb">
+			<tr>
+				<th>number</th>
+				<th>name</th>
+			</tr>
+			<tr class="td d-none">
+				<th ></th>
+				<th></th>
+			</tr>
+		</table></div>
+	</div>
+</body>
+</html>
